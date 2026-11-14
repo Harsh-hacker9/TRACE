@@ -1,13 +1,13 @@
 import { BRAND } from '@/data'
 import { cn } from '@/lib/cn'
 
-/** The stacked-bars mark from the reference, plus the wordmark. */
+/** Crosshair mark: a scan target, not a stack of bars. */
 export function LogoMark({ className }: { className?: string }) {
   return (
-    <svg viewBox="0 0 20 20" className={className ?? 'size-5'} aria-hidden fill="currentColor">
-      <rect x="2" y="3" width="16" height="3.4" />
-      <rect x="6" y="8.3" width="12" height="3.4" />
-      <rect x="2" y="13.6" width="16" height="3.4" />
+    <svg viewBox="0 0 20 20" className={className ?? 'size-5'} aria-hidden>
+      <path d="M10 1.5v4M10 14.5v4M1.5 10h4M14.5 10h4" stroke="currentColor" strokeWidth="1.4" fill="none" />
+      <rect x="4.5" y="4.5" width="11" height="11" fill="none" stroke="currentColor" strokeWidth="1.4" />
+      <rect x="8.6" y="8.6" width="2.8" height="2.8" fill="currentColor" />
     </svg>
   )
 }

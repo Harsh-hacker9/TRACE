@@ -4,35 +4,30 @@ import { useLocation } from './lib/router'
 import { Landing } from './sections/Landing'
 import { NotFound } from './sections/NotFound'
 
-const TrackerApp = lazy(() => import('./app/TrackerApp').then((m) => ({ default: m.TrackerApp })))
-const StyleGuide = lazy(() => import('./styleguide/StyleGuide').then((m) => ({ default: m.StyleGuide })))
+const ScanPage = lazy(() => import('./scan/ScanPage').then((m) => ({ default: m.ScanPage })))
+const AttacksPage = lazy(() => import('./sections/Attacks').then((m) => ({ default: m.AttacksPage })))
 
 export function App() {
   const { pathname } = useLocation()
 
-  // Warm the app chunk once the landing page is idle, so "Get started" is instant.
   useEffect(() => {
-    const t = window.setTimeout(() => void import('./app/TrackerApp'), 1500)
-    return () => window.clearTimeout(t)
-  }, [])
-
-  useEffect(() => {
-    if (pathname === '/') document.title = 'Triage — Bug tracking for teams that ship fast'
-    else if (pathname === '/styleguide') document.title = 'Style guide · Triage'
-    else if (!pathname.startsWith('/app')) document.title = 'Not found · Triage'
+    if (pathname === '/') document.title = 'Trace — Find the bugs before attackers do'
+    else if (pathname === '/scan') document.title = 'Scanner · Trace'
+    else if (pathname === '/attacks') document.title = 'Attack library · Trace'
+    else document.title = 'Not found · Trace'
   }, [pathname])
 
   if (pathname === '/') return <Landing />
-  if (pathname === '/app' || pathname.startsWith('/app/'))
+  if (pathname === '/scan')
     return (
       <Suspense fallback={<div className="h-dvh bg-bg" />}>
-        <TrackerApp />
+        <ScanPage />
       </Suspense>
     )
-  if (pathname === '/styleguide')
+  if (pathname === '/attacks')
     return (
       <Suspense fallback={<div className="min-h-dvh bg-bg" />}>
-        <StyleGuide />
+        <AttacksPage />
       </Suspense>
     )
   return <NotFound />

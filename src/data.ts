@@ -1,284 +1,145 @@
-// Every string the site and app show, plus the demo workspace the tracker
-// starts with. Edit this file first.
+// Every string the marketing site shows. The scanner's own labels live with
+// the screens; this file holds copy worth editing in one place.
 
 export const BRAND = {
-  name: 'Triage',
-  prefix: 'TRG',
-  workspace: 'Acme Engineering',
-  tagline: 'Bug tracking for teams that ship fast',
+  name: 'Trace',
+  tagline: 'Find the bugs before attackers do',
+  prefix: 'TRC',
 }
 
 export const NAV = {
-  login: 'Log in',
-  signup: 'Sign up',
+  links: [
+    { label: 'Scanner', to: '/scan' },
+    { label: 'Attacks', to: '/attacks' },
+    { label: 'How it works', to: '/#how' },
+  ],
+  cta: 'Scan a site',
 }
 
 export const HERO = {
-  title: ['Bug tracking for teams', 'that ship fast'],
-  body: 'Purpose-built for engineering teams. Triage, track, and resolve issues without slowing down.',
-  cta: 'Get started free',
+  eyebrow: 'Security review in 30 seconds',
+  title: ['Find the bugs', 'before attackers do'],
+  body: 'Paste a link or drop in your app. Trace reads the response, checks the code you ship, and tells you which attacks are possible — and exactly how to close them.',
+  placeholder: 'your-site.com',
+  cta: 'Scan',
+  upload: 'or upload your app',
+  points: ['No account', 'Passive checks only', 'Downloadable report'],
 }
 
 export const FEATURES_HEAD = {
-  eyebrow: 'Features',
-  title: 'Everything between “it broke” and “it shipped”',
-  body: 'Triage is opinionated where it saves you time and out of the way everywhere else.',
+  eyebrow: 'What we check',
+  title: 'The mistakes behind most breaches',
+  body: 'Not a vulnerability database and not a fuzzer. A focused review of the settings and code patterns that decide whether an attack works.',
 }
 
 export const FEATURES = [
-  { icon: 'keyboard', title: 'Keyboard first', body: 'j and k to move, c to create, ⌘K for everything else. Your hands stay on the keys.' },
-  { icon: 'layers', title: 'Grouped by status', body: 'Backlog to Done in one scroll. Collapse what you are not working on.' },
-  { icon: 'kanban', title: 'Board view', body: 'Drag issues between columns when you would rather see the flow than the list.' },
-  { icon: 'repeat', title: 'Cycles', body: 'Two-week cycles keep scope honest. Unfinished work rolls forward on its own.' },
-  { icon: 'chart', title: 'Insights', body: 'Opened versus closed, by priority and by person. No spreadsheet export required.' },
-  { icon: 'bell', title: 'Inbox', body: 'Assignments, comments and status changes on the issues you care about, nothing else.' },
+  {
+    icon: 'lock',
+    title: 'Transport and headers',
+    body: 'HTTPS, HSTS, CSP, clickjacking, MIME sniffing, referrer and permissions policy — compared against what a current browser expects.',
+  },
+  {
+    icon: 'cookie',
+    title: 'Cookies and sessions',
+    body: 'HttpOnly, Secure and SameSite on every Set-Cookie, so a stolen cookie cannot become a stolen login.',
+  },
+  {
+    icon: 'globe',
+    title: 'CORS policy',
+    body: 'One probe with a made-up origin shows whether any website can read your API — including the wildcard-with-credentials mistake.',
+  },
+  {
+    icon: 'code',
+    title: 'Injection sinks',
+    body: 'eval, innerHTML, string-built SQL and shell calls, with the line and file where they live.',
+  },
+  {
+    icon: 'key',
+    title: 'Secrets in what you ship',
+    body: 'Live keys, tokens, committed .env files and production source maps, with the value masked in the report.',
+  },
+  {
+    icon: 'route',
+    title: 'Redirects and file paths',
+    body: 'Open redirects, path traversal and disabled TLS verification: small bugs that turn into account takeover.',
+  },
 ] as const
 
-export const CHANGELOG_HEAD = {
-  eyebrow: 'Changelog',
-  title: 'Shipped recently',
-  subscribe: 'Try the changelog form. This demo does not save addresses or send email.',
-  placeholder: 'you@company.com',
-  button: 'Subscribe',
-  done: 'Demo complete. No subscription was saved.',
+export const ATTACKS_HEAD = {
+  eyebrow: 'Attack surface',
+  title: 'What an attacker actually tries',
+  body: 'Each finding maps to one of these classes. Open the library for the steps, the impact and the fix.',
 }
 
-export const CHANGELOG = [
-  { version: '2.4', date: 'Nov 4, 2026', title: 'Board view and drag to move', items: ['Kanban board grouped by status', 'Drag cards between columns', 'Card counts per column'] },
-  { version: '2.3', date: 'Oct 21, 2026', title: 'Command palette', items: ['⌘K opens a palette for issues and actions', 'Jump to any issue by ID', 'Switch theme from the keyboard'] },
-  { version: '2.2', date: 'Oct 7, 2026', title: 'Insights', items: ['Opened vs closed over eight weeks', 'Open issues by priority', 'Workload per teammate'] },
-  { version: '2.1', date: 'Sep 23, 2026', title: 'Light theme', items: ['Full light theme with the same hairlines', 'Remembers your choice per device'] },
-] as const
-
-export const PRICING_HEAD = {
-  eyebrow: 'Pricing',
-  title: 'Free until it matters',
-  monthly: 'Monthly',
-  annual: 'Annual',
-  save: 'Save 20%',
+export const STEPS_HEAD = {
+  eyebrow: 'How it works',
+  title: 'Two ways in, one report out',
+  body: 'A live site is checked from the edge. Uploaded code is read in your browser and never leaves it.',
 }
 
-export const PLANS = [
+export const STEPS = [
   {
-    name: 'Free',
-    monthly: 0,
-    blurb: 'For side projects and small teams finding their rhythm.',
-    features: ['Up to 5 members', 'Unlimited issues', 'List and board views', 'Community support'],
-    cta: 'Get started',
-    featured: false,
+    step: '01',
+    title: 'Point it at your work',
+    body: 'Paste a URL, or drop a zip of your project. For uploads, zips and plain source files are read locally.',
   },
   {
-    name: 'Team',
-    monthly: 10,
-    blurb: 'For engineering teams shipping every week.',
-    features: ['Unlimited members', 'Cycles and insights', 'Inbox and notifications', 'Priority support'],
-    cta: 'Start free trial',
-    featured: true,
+    step: '02',
+    title: 'Trace reads, it does not attack',
+    body: 'For a site: the page, its response headers, its cookies, one CORS probe, robots.txt. For code: the files, line by line.',
   },
   {
-    name: 'Enterprise',
-    monthly: null,
-    blurb: 'For organisations with security and compliance needs.',
-    features: ['SAML SSO and SCIM', 'Audit log', 'Custom data retention', 'Dedicated support'],
-    cta: 'Contact sales',
-    featured: false,
+    step: '03',
+    title: 'Get findings with fixes',
+    body: 'Severity, evidence, the attacks each issue enables, and the header or code change that closes it.',
   },
 ] as const
+
+export const LIMITS = {
+  title: 'What this is not',
+  body: 'An honest report has edges. Trace is a fast first pass, not a penetration test.',
+  items: [
+    'It only requests the page you name, plus robots.txt and one CORS probe. It does not crawl your site or guess paths.',
+    'It never sends exploit payloads, so a clean report does not prove the app is safe.',
+    'TLS certificate details, DNS and server internals are not visible from the edge.',
+    'Uploaded code is matched against known risky patterns; there is no dependency CVE database and the app is not run.',
+    'Only scan sites and code you own or have written permission to test.',
+  ],
+}
 
 export const CTA = {
-  title: 'Stop tracking. Start shipping.',
-  body: 'Set up your workspace in under a minute. No credit card.',
-  button: 'Open the app',
+  title: 'Ship the fix, not the incident.',
+  body: 'Most of what gets exploited is a missing header or one unescaped value. Find it before someone else does.',
+  button: 'Open the scanner',
 }
 
 export const FOOTER = {
-  blurb: 'Bug tracking for teams that ship fast.',
+  blurb: 'A passive security review for the sites and apps you build.',
   columns: [
-    { title: 'Product', links: [['Features', '/#features'], ['Changelog', '/#changelog'], ['Pricing', '/#pricing'], ['Open app', '/app']] },
-    { title: 'App', links: [['Issues', '/app'], ['Board', '/app/board'], ['Insights', '/app/insights'], ['Inbox', '/app/inbox']] },
-    { title: 'Resources', links: [['Style guide', '/styleguide'], ['Settings', '/app/settings'], ['Status', '/api/health']] },
+    {
+      title: 'Product',
+      links: [
+        { label: 'Scanner', to: '/scan' },
+        { label: 'Attack library', to: '/attacks' },
+        { label: 'How it works', to: '/#how' },
+      ],
+    },
+    {
+      title: 'Checks',
+      links: [
+        { label: 'Response headers', to: '/attacks#xss' },
+        { label: 'Session cookies', to: '/attacks#session_hijack' },
+        { label: 'CORS', to: '/attacks#cors_theft' },
+        { label: 'Secrets', to: '/attacks#secret_leak' },
+      ],
+    },
+    {
+      title: 'Resources',
+      links: [
+        { label: 'API health', to: '/api/health' },
+        { label: 'OWASP Top 10', to: 'https://owasp.org/Top10/' },
+      ],
+    },
   ],
-  legal: '© 2026 Triage, Inc.',
-} as const
-
-/* ------------------------------------------------------------------ */
-/* Tracker vocabulary                                                  */
-/* ------------------------------------------------------------------ */
-
-export const STATUSES = [
-  { id: 'backlog', name: 'Backlog' },
-  { id: 'todo', name: 'Todo' },
-  { id: 'in_progress', name: 'In progress' },
-  { id: 'in_review', name: 'In review' },
-  { id: 'blocked', name: 'Blocked' },
-  { id: 'done', name: 'Done' },
-  { id: 'canceled', name: 'Canceled' },
-] as const
-export type StatusId = (typeof STATUSES)[number]['id']
-export const CLOSED: StatusId[] = ['done', 'canceled']
-
-export const PRIORITIES = [
-  { id: 1, name: 'Urgent' },
-  { id: 2, name: 'High' },
-  { id: 3, name: 'Medium' },
-  { id: 4, name: 'Low' },
-  { id: 0, name: 'No priority' },
-] as const
-export type PriorityId = (typeof PRIORITIES)[number]['id']
-
-export const LABEL_COLORS = ['#f43f5e', '#f97316', '#f5a524', '#22c55e', '#14b8a6', '#3b82f6', '#8b5cf6', '#a1a1aa'] as const
-
-/* ------------------------------------------------------------------ */
-/* Demo workspace                                                      */
-/* ------------------------------------------------------------------ */
-
-export type Member = { id: string; name: string; handle: string; hue: number }
-export type Label = { id: string; name: string; color: string }
-export type Cycle = { id: string; name: string; start: string; end: string }
-export type Comment = { id: string; authorId: string; body: string; createdAt: number }
-export type Issue = {
-  number: number
-  title: string
-  description: string
-  status: StatusId
-  priority: PriorityId
-  assigneeId: string | null
-  labelIds: string[]
-  cycleId: string | null
-  due: string | null
-  createdAt: number
-  updatedAt: number
-  completedAt: number | null
-  comments: Comment[]
-}
-export type Notice = {
-  id: string
-  issueNumber: number
-  actorId: string
-  kind: 'assigned' | 'comment' | 'status' | 'mention'
-  text: string
-  createdAt: number
-  read: boolean
-}
-
-export const SEED_MEMBERS: Member[] = [
-  { id: 'm1', name: 'Maya Chen', handle: 'maya', hue: 28 },
-  { id: 'm2', name: 'Jonas Weber', handle: 'jonas', hue: 210 },
-  { id: 'm3', name: 'Priya Natarajan', handle: 'priya', hue: 330 },
-  { id: 'm4', name: 'Leo Martins', handle: 'leo', hue: 150 },
-  { id: 'm5', name: 'Sam Okafor', handle: 'sam', hue: 265 },
-]
-export const ME = 'm1'
-
-export const SEED_LABELS: Label[] = [
-  { id: 'l1', name: 'Bug', color: '#f43f5e' },
-  { id: 'l2', name: 'Regression', color: '#f97316' },
-  { id: 'l3', name: 'Performance', color: '#f5a524' },
-  { id: 'l4', name: 'Frontend', color: '#3b82f6' },
-  { id: 'l5', name: 'Backend', color: '#14b8a6' },
-  { id: 'l6', name: 'Feature', color: '#8b5cf6' },
-]
-
-type SeedRow = [number, string, StatusId, PriorityId, string | null, string[], number, number | null, number | null]
-// [number, title, status, priority, assignee, labels, created days ago, due in days, completed days ago]
-const ROWS: SeedRow[] = [
-  [142, 'Checkout button unresponsive on Safari 18', 'in_progress', 1, 'm1', ['l1', 'l4'], 2, 1, null],
-  [141, 'Webhook retries fire twice after timeout', 'todo', 2, 'm2', ['l1', 'l5'], 3, 4, null],
-  [140, 'Add keyboard shortcut cheatsheet', 'backlog', 4, null, ['l6', 'l4'], 4, null, null],
-  [139, 'Login redirects loop when session cookie expires', 'blocked', 1, 'm3', ['l1', 'l2'], 5, -1, null],
-  [138, 'Search results flicker while typing', 'in_progress', 2, 'm4', ['l1', 'l4'], 6, 3, null],
-  [137, 'Rate limiter counts preflight requests', 'in_review', 3, 'm2', ['l5'], 7, 2, null],
-  [136, 'Export CSV drops non-ASCII characters', 'todo', 3, 'm5', ['l1', 'l5'], 8, 9, null],
-  [135, 'Dashboard p95 latency above 800ms', 'done', 2, 'm2', ['l3', 'l5'], 10, null, 1],
-  [134, 'Dark mode toggle ignores system preference', 'in_review', 4, 'm1', ['l4'], 11, 5, null],
-  [133, 'Bulk edit for labels', 'backlog', 3, null, ['l6'], 12, null, null],
-  [132, 'Avatar upload fails above 2 MB', 'todo', 3, 'm4', ['l1'], 13, 12, null],
-  [131, 'Notification emails sent in UTC, not local time', 'done', 3, 'm5', ['l5'], 15, null, 3],
-  [130, 'Memory leak in realtime subscription', 'in_progress', 1, 'm2', ['l3', 'l5'], 16, 0, null],
-  [129, 'Inline code blocks lose formatting on paste', 'backlog', 4, 'm3', ['l4'], 17, null, null],
-  [128, 'Mobile nav overlaps page header', 'done', 2, 'm4', ['l1', 'l4'], 18, null, 5],
-  [127, 'Archive old cycles automatically', 'backlog', 0, null, ['l6'], 20, null, null],
-  [126, 'Flaky test: billing proration edge case', 'todo', 3, 'm5', ['l5'], 22, 6, null],
-  [125, 'Sidebar collapse state not remembered', 'done', 4, 'm1', ['l4'], 23, null, 8],
-  [124, 'Image previews blurry on retina displays', 'canceled', 4, 'm4', ['l4'], 25, null, 10],
-  [123, 'Slow cold start for API worker', 'done', 2, 'm2', ['l3'], 27, null, 12],
-  [122, 'Date picker skips the 31st', 'done', 2, 'm3', ['l1', 'l2'], 29, null, 14],
-  [121, 'GitHub sync misses renamed branches', 'in_review', 2, 'm5', ['l5'], 31, 1, null],
-  [120, 'Add due dates to issues', 'done', 3, 'm1', ['l6'], 34, null, 18],
-  [119, 'Typo in invite email subject', 'done', 4, 'm3', ['l1'], 36, null, 22],
-  [118, 'Permissions page 500s for guests', 'done', 1, 'm2', ['l1', 'l5'], 38, null, 25],
-  [117, 'Comment editor loses draft on navigation', 'todo', 3, 'm3', ['l1', 'l4'], 40, 10, null],
-  [116, 'Reduce bundle size of issue view', 'backlog', 3, 'm4', ['l3', 'l4'], 43, null, null],
-  [115, 'Timezone selector missing Kathmandu', 'done', 4, 'm5', ['l1'], 46, null, 30],
-  [114, 'Stale cache after label rename', 'done', 2, 'm4', ['l1', 'l2'], 49, null, 33],
-  [113, 'Keyboard focus lost after closing modal', 'done', 3, 'm1', ['l1', 'l4'], 52, null, 38],
-]
-
-const DESCRIPTIONS: Record<number, string> = {
-  142: 'Clicking "Pay now" on Safari 18.1 does nothing. No network request fires. Repro on macOS 15 and iOS 18 with a saved card.\n\nLikely the new pointer-events rule on the overlay.',
-  139: 'After the session cookie expires, /login redirects to /app which redirects back to /login. Blocked on the auth service rollout.',
-  138: 'Results list unmounts on every keystroke instead of updating in place.',
-  130: 'Heap grows ~40 MB/hour per open tab. Subscriptions are not torn down when the issue view unmounts.',
-}
-
-export function seedIssues(now = Date.now()): Issue[] {
-  const today = new Date(now)
-  const day = 86_400_000
-  return ROWS.map(([number, title, status, priority, assigneeId, labelIds, created, dueIn, doneAgo]) => {
-    const createdAt = now - created * day - (number % 7) * 3_600_000
-    let due: string | null = null
-    if (dueIn !== null) {
-      const d = new Date(today.getFullYear(), today.getMonth(), today.getDate() + dueIn)
-      due = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`
-    }
-    const completedAt = doneAgo === null ? null : now - doneAgo * day
-    const comments: Comment[] =
-      number === 142
-        ? [
-            { id: 'c1', authorId: 'm4', body: 'Reproduced on Safari 18.1. Chrome and Firefox are fine.', createdAt: now - 30 * 3_600_000 },
-            { id: 'c2', authorId: 'm1', body: 'Found it: the loading overlay keeps pointer-events after fade-out. Fix in review shortly.', createdAt: now - 4 * 3_600_000 },
-          ]
-        : number === 139
-          ? [{ id: 'c3', authorId: 'm3', body: 'Waiting on the auth service deploy before I can test the fix.', createdAt: now - 20 * 3_600_000 }]
-          : []
-    return {
-      number,
-      title,
-      description: DESCRIPTIONS[number] ?? '',
-      status,
-      priority,
-      assigneeId,
-      labelIds,
-      cycleId: created <= 14 && status !== 'backlog' ? 'cy2' : created <= 28 ? 'cy1' : null,
-      due,
-      createdAt,
-      updatedAt: completedAt ?? createdAt,
-      completedAt,
-      comments,
-    }
-  })
-}
-
-export function seedCycles(now = Date.now()): Cycle[] {
-  const d = new Date(now)
-  const iso = (offset: number) => {
-    const x = new Date(d.getFullYear(), d.getMonth(), d.getDate() + offset)
-    return `${x.getFullYear()}-${String(x.getMonth() + 1).padStart(2, '0')}-${String(x.getDate()).padStart(2, '0')}`
-  }
-  return [
-    { id: 'cy1', name: 'Cycle 23', start: iso(-27), end: iso(-14) },
-    { id: 'cy2', name: 'Cycle 24', start: iso(-13), end: iso(0) },
-    { id: 'cy3', name: 'Cycle 25', start: iso(1), end: iso(14) },
-  ]
-}
-
-export function seedNotices(now = Date.now()): Notice[] {
-  const h = 3_600_000
-  return [
-    { id: 'n1', issueNumber: 142, actorId: 'm4', kind: 'comment', text: 'commented: "Reproduced on Safari 18.1…"', createdAt: now - 30 * h, read: false },
-    { id: 'n2', issueNumber: 134, actorId: 'm2', kind: 'status', text: 'moved this to In review', createdAt: now - 26 * h, read: false },
-    { id: 'n3', issueNumber: 142, actorId: 'm3', kind: 'assigned', text: 'assigned this to you', createdAt: now - 48 * h, read: false },
-    { id: 'n4', issueNumber: 125, actorId: 'm5', kind: 'mention', text: 'mentioned you: "@maya can you confirm on mobile?"', createdAt: now - 8 * 24 * h, read: true },
-    { id: 'n5', issueNumber: 120, actorId: 'm2', kind: 'status', text: 'closed this as Done', createdAt: now - 18 * 24 * h, read: true },
-  ]
+  legal: '© 2026 Trace. Scan only what you are allowed to scan.',
 }
